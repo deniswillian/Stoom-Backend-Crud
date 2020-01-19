@@ -37,4 +37,5 @@ COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
 COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
 
-ENTRYPOINT ["java","-cp","app:app/lib/*","com.stoom.backend"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.stoom.backend.CrudApplication"]
+#ENTRYPOINT ["java","-jar","crud-0.0.1-SNAPSHOT.jar"]
