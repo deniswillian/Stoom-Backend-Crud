@@ -1,0 +1,22 @@
+version: "3"
+services:
+  crud:
+    image: crud
+    ports:
+      - "8080:8080"
+    networks:
+      - crud-mysql
+    depends_on:
+      - mysqldb
+ 
+  mysqldb:
+    image: mysql:8
+    networks:
+      - crud-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=stoom  
+
+networks:
+  crud-mysql:
+    driver: bridge
